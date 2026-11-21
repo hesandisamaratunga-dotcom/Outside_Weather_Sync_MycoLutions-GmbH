@@ -1,28 +1,33 @@
-name: Sync Outside Weather to Datacake
+# ---------------------------------------------------------------------------
+# Sync Outside Weather to Datacake - DISABLED
+# To turn it back on, uncomment everything below.
+# ---------------------------------------------------------------------------
 
-on:
-  schedule:
-    - cron: "0 * * * *"   # every hour 
-  workflow_dispatch:        # adds a manual "Run workflow" button
-
-jobs:
-  sync:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Install dependencies
-        run: pip install requests
-
-      - name: Run weather sync script
-        env:
-          DATACAKE_TOKEN: ${{ secrets.DATACAKE_TOKEN }}
-          DATACAKE_DEVICE_ID: ${{ secrets.DATACAKE_DEVICE_ID }}
-        run: python fetch_weather.py
-# resync
+# name: Sync Outside Weather to Datacake
+#
+# on:
+#   schedule:
+#     - cron: "0 * * * *"   # every hour
+#   workflow_dispatch:        # adds a manual "Run workflow" button
+#
+# jobs:
+#   sync:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout repo
+#         uses: actions/checkout@v4
+#
+#       - name: Set up Python
+#         uses: actions/setup-python@v5
+#         with:
+#           python-version: "3.11"
+#
+#       - name: Install dependencies
+#         run: pip install requests
+#
+#       - name: Run weather sync script
+#         env:
+#           DATACAKE_TOKEN: ${{ secrets.DATACAKE_TOKEN }}
+#           DATACAKE_DEVICE_ID: ${{ secrets.DATACAKE_DEVICE_ID }}
+#         run: python fetch_weather.py
+# # resync
